@@ -32,7 +32,7 @@ const createPeople = (request, response) => {
     if (error) {
       throw error
     }
-    response.status(201).send(`User added with ID: ${result.id}`)
+    response.status(201).send(`User added with ID: ${results.id}`)
   })
 }
 
@@ -41,7 +41,7 @@ const updatePeople = (request, response) => {
   const { first, last } = request.body
 
   pool.query(
-    'UPDATE employees SET name = $1, email = $2 WHERE id = $3',
+    'UPDATE employees SET first = $1, last = $2 WHERE id = $3',
     [first, last, id],
     (error, results) => {
       if (error) {
